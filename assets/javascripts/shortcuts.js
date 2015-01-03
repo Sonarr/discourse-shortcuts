@@ -1,6 +1,8 @@
 function findTokenValue (token) {
   var tokens = {
-    'github': 'https://github.com/markus101/discourse-shortcuts'
+    'debug log': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
+    'debug logs': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
+    'faq': 'https://github.com/Sonarr/Sonarr/wiki/FAQ'
   }
 
   var tokenValue = tokens[token.toLowerCase()];
