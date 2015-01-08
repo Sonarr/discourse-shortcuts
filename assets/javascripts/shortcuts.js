@@ -2,6 +2,8 @@ function findTokenValue (token) {
   var tokens = {
     'debug log': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
     'debug logs': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
+    'trace log': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
+    'trace logs': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
     'log files': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
     'faq': 'https://github.com/Sonarr/Sonarr/wiki/FAQ'
   }
