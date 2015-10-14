@@ -7,7 +7,10 @@ function findTokenValue (token) {
     'trace logs': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
     'trace logging': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
     'log files': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
-    'faq': 'https://github.com/Sonarr/Sonarr/wiki/FAQ'
+    'faq': 'https://github.com/Sonarr/Sonarr/wiki/FAQ',
+    'backup': 'https://github.com/Sonarr/Sonarr/wiki/Backup-and-Restore',
+    'restore': 'https://github.com/Sonarr/Sonarr/wiki/Backup-and-Restore',
+    'backup and restore': 'https://github.com/Sonarr/Sonarr/wiki/Backup-and-Restore'
   }
 
   var tokenValue = tokens[token.toLowerCase()];
