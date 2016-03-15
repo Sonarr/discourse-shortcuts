@@ -10,6 +10,7 @@ function findTokenValue (token) {
     'faq': 'https://github.com/Sonarr/Sonarr/wiki/FAQ',
     'backup': 'https://github.com/Sonarr/Sonarr/wiki/Backup-and-Restore',
     'restore': 'https://github.com/Sonarr/Sonarr/wiki/Backup-and-Restore',
+    'restoring': 'https://github.com/Sonarr/Sonarr/wiki/Backup-and-Restore',
     'backup and restore': 'https://github.com/Sonarr/Sonarr/wiki/Backup-and-Restore',
     'release branches': 'https://github.com/Sonarr/Sonarr/wiki/Release-Branches',
     'develop branch': 'https://github.com/Sonarr/Sonarr/wiki/Release-Branches'
