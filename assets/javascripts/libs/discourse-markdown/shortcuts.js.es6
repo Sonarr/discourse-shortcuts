@@ -26,8 +26,8 @@ registerOption((siteSettings, opts) => {
 
 function replaceShortcut(text, tokens) {
   const result = text.replace(tokenMatchingRegex, function (match, possibleToken) {
-    if (tokens.hasOwnProperty(possibleToken)) {
-      return tokens[possibleToken];
+    if (tokens.hasOwnProperty(possibleToken.toLowerCase())) {
+      return `[${possibleToken}] (${tokens[possibleToken]})`;
     }
 
     return match;
