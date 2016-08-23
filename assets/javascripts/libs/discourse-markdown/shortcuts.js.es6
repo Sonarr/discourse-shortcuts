@@ -3,6 +3,10 @@ import { registerOption } from 'pretty-text/pretty-text';
 const tokenMatchingRegex = /\(\((.+)\)\)/g;
 
 const shortcutTokens = {
+  'appdata': 'https://github.com/Sonarr/Sonarr/wiki/AppData-Directory',
+  'appdata folder': 'https://github.com/Sonarr/Sonarr/wiki/AppData-Directory',
+  'appdata directory': 'https://github.com/Sonarr/Sonarr/wiki/AppData-Directory',
+  'appdata path': 'https://github.com/Sonarr/Sonarr/wiki/AppData-Directory',
   'debug log': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
   'debug logs': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
   'debug logging': 'https://github.com/Sonarr/Sonarr/wiki/Log-Files',
