@@ -30,8 +30,10 @@ registerOption((siteSettings, opts) => {
 
 function replaceShortcut(text, tokens) {
   const result = text.replace(tokenMatchingRegex, function (match, possibleToken) {
-    if (tokens.hasOwnProperty(possibleToken.toLowerCase())) {
-      return `[${possibleToken}] (${tokens[possibleToken]})`;
+    const possibleTokenLowerCase = possibleToken.toLowerCase();
+
+    if (tokens.hasOwnProperty(possibleTokenLowerCase)) {
+      return `[${possibleToken}] (${tokens[possibleTokenLowerCase]})`;
     }
 
     return match;
