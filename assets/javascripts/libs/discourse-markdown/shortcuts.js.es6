@@ -1,7 +1,5 @@
 import { registerOption } from 'pretty-text/pretty-text';
 
-const tokenMatchingRegex = /\(\((.+?)\)\)/g;
-
 const shortcutTokens = {
   'appdata': 'https://github.com/Sonarr/Sonarr/wiki/AppData-Directory',
   'appdata folder': 'https://github.com/Sonarr/Sonarr/wiki/AppData-Directory',
@@ -25,27 +23,33 @@ const shortcutTokens = {
   'develop branch': 'https://github.com/Sonarr/Sonarr/wiki/Release-Branches'
 };
 
-registerOption((siteSettings, opts) => {
-  opts.features.shortcuts = true;
-  opts.shortcutTokens = shortcutTokens;
-});
+function replaceShortcut(buffer, matches, state) {
+  const [match, possibleToken] = matches;
 
-function replaceShortcut(text, tokens) {
-  const result = text.replace(tokenMatchingRegex, function (match, possibleToken) {
-    const possibleTokenLowerCase = possibleToken.toLowerCase();
+  const possibleTokenLowerCase = possibleToken.toLowerCase();
 
-    if (tokens.hasOwnProperty(possibleTokenLowerCase)) {
-      return `[${possibleToken}] (${tokens[possibleTokenLowerCase]})`;
-    }
+  if (shortcutTokens.hasOwnProperty(possibleTokenLowerCase)) {
+    const tag = 'a'
+    const tokenHref = shortcutTokens[possibleToken]
 
-    return match;
-  });
+    const openToken = new state.Token('shortcut_open', tag, 1);
+    openToken.attrs = [['href', tokenHref]];
+    buffer.push(openToken);
 
-  return result;
-};
+    const contentToken = new state.Token('text', '', 0);
+    contentToken.content = possibleToken;
+    buffer.push(contentToken);
+
+    const closeToken = new state.Token('shortcut_close', tag, -1);
+    buffer.push(closeToken);
+  }
+}
 
 export function setup(helper) {
-  helper.addPreProcessor(text => {
-    return replaceShortcut(text, helper.getOptions().shortcutTokens);
+  helper.registerPlugin(md => {
+    md.core.textPostProcess.ruler.push('shortcuts', {
+      matcher: /\(\(([^(].+?[^)])\)\)/,  //regex flags are NOT supported
+      onMatch: replaceShortcut
+    });
   });
 }
