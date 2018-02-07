@@ -30,7 +30,7 @@ function replaceShortcut(buffer, matches, state) {
 
   if (shortcutTokens.hasOwnProperty(possibleTokenLowerCase)) {
     const tag = 'a'
-    const tokenHref = shortcutTokens[possibleToken]
+    const tokenHref = shortcutTokens[possibleTokenLowerCase]
 
     const openToken = new state.Token('shortcut_open', tag, 1);
     openToken.attrs = [['href', tokenHref]];
